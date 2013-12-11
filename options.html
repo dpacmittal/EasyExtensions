@@ -1,8 +1,20 @@
-<html>
-<head></head>
+<html ng-app="easyext" ng-csp>
+<head>
+<script type="text/javascript" src="js/angular.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script type="text/javascript" src="js/options.js"></script>
+<script type="text/javascript" src="js/groups.js"></script>
+</head>
 <body>
-<script type="text/javascript" src="options.js">
-</script>
-<div id="main"></div>
+        <div ng-controller="ExtensionsCtrl">
+        <input type="text" placeholder="Search" ng-model="search.name"/>
+                <ul>
+                        <li ng-repeat="extension in extensions | filter:search | orderBy:'name'">
+                                <span>{{extension.name}}</span>
+                        </li>
+                </ul>
+        </div>
+        <div ng-view>
+        </div>
 </body>
 </html>

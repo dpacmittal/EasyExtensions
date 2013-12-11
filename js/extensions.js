@@ -5,7 +5,7 @@ function ExtensionsCtrl($scope) {
                         $scope.$apply(function(){
                                 $scope.extensions = info;
                         });
-                        //console.log(info);
+                        console.log(info);
                 }
         );
 
