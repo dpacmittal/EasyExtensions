@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "EasyExtensions",
+  "description": "Manage and group your extensions and enable and disable multiple groups at once",
+  "version": "1.0",
+
+  "permissions": [
+	"management"
+  ],
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  
+  "options_page": "options.html"
+}
