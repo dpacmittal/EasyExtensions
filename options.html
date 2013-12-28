@@ -1,20 +1,53 @@
 <html ng-app="easyext" ng-csp>
-<head>
-<script type="text/javascript" src="js/angular.js"></script>
-<script src="js/angular-route.min.js"></script>
-<script type="text/javascript" src="js/options.js"></script>
-<script type="text/javascript" src="js/groups.js"></script>
-</head>
-<body>
-        <div ng-controller="ExtensionsCtrl">
-        <input type="text" placeholder="Search" ng-model="search.name"/>
-                <ul>
-                        <li ng-repeat="extension in extensions | filter:search | orderBy:'name'">
-                                <span>{{extension.name}}</span>
-                        </li>
-                </ul>
-        </div>
-        <div ng-view>
-        </div>
-</body>
+        <head>
+                <link href="css/ng-grid.css" rel="stylesheet" type="text/css" />
+                <link href="css/angular-csp.css" rel="stylesheet" type="text/css" />
+                <script type="text/javascript" src="js/angular.js"></script>
+                <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+                <!--<script type="text/javascript" src="js/jquery-ui-1.9.1.custom.min.js"></script>-->
+                <script type="text/javascript" src="js/ng-grid-2.0.7.debug.js"></script>
+                <script type="text/javascript" src="js/angular-route.min.js"></script>
+                <script type="text/javascript" src="js/underscore.min.js"></script>
+                <script type="text/javascript" src="js/options.js"></script>
+                <script type="text/javascript" src="js/groups.js"></script>
+
+                <style>
+                        .groups{
+                                width: 20%;
+                                float: left;
+                        }
+                        .groupview{
+                                width: 60%;
+                                float: left;
+                        }
+                        .box{
+
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                padding: 10px;
+                                margin: 10px;
+                        }
+                        .gridStyle
+                        {
+                                width: 700px;
+                                height: 300px;
+                        }
+                </style>
+        </head>
+        <body>
+                <!--<div ng-view>
+                </div>-->
+                <!--<div ng-controller="ExtensionsCtrl">
+                        
+                        
+                </div>
+                -->
+                
+                
+                
+                <div ng-view>
+                </div>
+
+                
+        </body>
 </html>

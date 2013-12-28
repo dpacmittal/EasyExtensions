@@ -1,0 +1,11 @@
+<div class="groups box">
+        <ul>
+                <li ng-repeat="(name,extensions) in Groups.groups">
+                        <a href="#/group/{{name}}">{{name}}</a>
+                        <a href="" ng-click="Groups.removeByName(group.name)">Remove</a>
+                </li>
+        </ul>
+        <input type="text" ng-model="groupname" placeholder="Group" />
+        <button ng-click="Groups.add(groupname)">Add</button>
+        <button ng-click="loggrps()">Log</button>        
+</div>

@@ -1,0 +1,23 @@
+<div ng-include="'main.html'"></div>
+<div class="groupview box">
+	<div class="gridStyle" ng-grid="mygridOptions">
+	</div>
+	<!--{{Groups.groups[params.groupname]}}
+	<ul>
+		<li ng-repeat="ext in mygridOptions.selectedItems">
+			
+		</li>
+	</ul>-->
+	<button ng-click="Groups.addSelectedExtensions(params.groupname, mygridOptions.selectedItems)">Apply</button>
+</div>
+<!--
+<input type="text" placeholder="Search" ng-model="search.name"/>
+
+
+<ul>
+        <li ng-repeat="extension in extensions | filter:search | orderBy:'name'">
+                <span>{{extension.name}}</span>
+        </li>
+</ul>
+
+-->

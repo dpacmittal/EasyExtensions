@@ -3,16 +3,16 @@
 
   "name": "EasyExtensions",
   "description": "Manage and group your extensions and enable and disable multiple groups at once",
-  "version": "1.0",
+  "version": "1.1",
 
-  "permissions": [
-	"management"
-  ],
+  "permissions": ["management", "storage", "unlimitedStorage"],
 
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
-  
+  "background": {
+    "scripts": ["background.js"] 
+  },
   "options_page": "options.html"
 }
