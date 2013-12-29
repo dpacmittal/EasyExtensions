@@ -69,7 +69,8 @@ easyext.factory('Groups', function ($q, $rootScope) {
             for (var i = 0; i < extensions.length; i++) {
                 shrunk_extensions.push(extensions[i].id);
             }
-            this.groups[name] = _.union(this.groups[name], angular.copy(shrunk_extensions));
+            //this.groups[name] = _.union(this.groups[name], angular.copy(shrunk_extensions));*/
+            this.groups[name] = shrunk_extensions;
             chrome.storage.sync.set(this.groups);
         },
         addExtension: function (name, extension) {
@@ -117,7 +118,7 @@ easyext.factory('Extensions', function ($q, $rootScope) {
     return obj;
 });
 
-easyext.controller('GroupsCtrl', ['$scope', 'Groups', 'Extensions', '$routeParams', 'GroupsData', 'ExtData', function ($scope, Groups, Extensions, $routeParams, GroupsData, ExtData) {
+easyext.controller('GroupsCtrl', ['$scope', 'Groups', 'Extensions', '$routeParams', '$route', 'GroupsData', 'ExtData', function ($scope, Groups, Extensions, $routeParams, $route, GroupsData, ExtData) {
     /*Groups.refreshData().then(function(data){
      Groups.groups = data;
      })
@@ -167,12 +168,27 @@ easyext.controller('GroupsCtrl', ['$scope', 'Groups', 'Extensions', '$routeParam
         showSelectionCheckbox: true,
         selectedItems: [],
         showFilter: true,
-        enableSorting: false,
-        checkboxCellTemplate: '<div class="ngSelectionCell"><input tabindex="-1" class="ngSelectionCheckbox" type="checkbox" ng-checked="row.selected || (row.entity.sel==\'a\')" /></div>angular.min.js'
+        //enableSorting: false,
+        checkboxCellTemplate: '<div class="ngSelectionCell"><input tabindex="-1" class="ngSelectionCheckbox" type="checkbox" ng-checked="row.selected" /></div>angular.min.js'
     };
+    
+    $scope.$on('ngGridEventData', function(){
+        var i = 0;
+        angular.forEach($scope.griddata, function(value, key){
+        	if(value.sel=='a')
+        		$scope.mygridOptions.selectItem(i, true);
+        	i++;
+        });
+    });
+    
+    $scope.refreshData = function(){
+    	$route.reload();
+    }
+
     $scope.loggrps = function () {
         console.log($scope);
         Groups.loga();
 
     }
+
 }]);
