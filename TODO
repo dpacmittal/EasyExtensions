@@ -1,0 +1,4 @@
+1. Make popup.html to apply changes.
+2. Make a default (unremovable) group which saves all extension states before plugin was installed.
+3. Exporting/sharing groups. Write serverside nodejs code for that.
+4. Make it look good.
